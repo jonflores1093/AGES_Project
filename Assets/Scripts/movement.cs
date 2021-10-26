@@ -18,7 +18,7 @@ public class movement : MonoBehaviour
 		rigid = GetComponent<Rigidbody>();
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		//Handles the movement of the ball
 		float xMove = Input.GetAxis("Horizontal") * rotationSpeed;
