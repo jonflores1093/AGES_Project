@@ -1,61 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class movement : MonoBehaviour
 {
-	public float rotationSpeed = 10.0F;
-	public float jumpHeight = 3.0F;
 
-	private bool isFalling = false;
+    public float speed = 5f;
+    Vector3 startPos;
+    private Rigidbody rb;
+    [SerializeField] private Transform camera;
 
-	private Rigidbody rigid;
+    void Start()
+    {
+    	rb = GetComponent<Rigidbody>();
+        startPos = this.transform.position;
+        Cursor.visible = false;
 
-	void Start()
-	{
-		rigid = GetComponent<Rigidbody>();
-	}
+    }
 
-	void FixedUpdate()
-	{
-		//Handles the movement of the ball
-		float xMove = Input.GetAxis("Horizontal") * rotationSpeed;
-		float zMove = Input.GetAxis("Vertical") * rotationSpeed;
-		xMove *= Time.deltaTime;
-		zMove *= Time.deltaTime;
-		if (rigid != null)
-		{
-			//Apply movement
-			Vector3 xDirection = new Vector3(xMove, 0.0F, 0.0F);
-			Vector3 zDirection = new Vector3(0.0F,0.0F ,zMove);
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+       {
+            Application.Quit();
+        }
+    }
+    void FixedUpdate()
+    {
+        float movementHorizontal = Input.GetAxis("Horizontal");
+        float movementVertical = Input.GetAxis("Vertical");
 
-			//Uses the object's mass to apply instant impulse force.
-			rigid.AddForce(xDirection, ForceMode.Impulse);
-			rigid.AddForce(zDirection, ForceMode.Impulse);
+        //Makes it so that the player moves in the direction the camera is facing
+        //Example: If the camera is facing north than the player should move north
+        Vector3 cameraForward = camera.forward * movementVertical;
+        Vector3 cameraRight = camera.right * movementHorizontal;
+        Vector3 rawMovement = cameraForward + cameraRight;
+        rawMovement.y = 0; //prevents the player from moving up.
+        rawMovement = rawMovement.normalized; //Will keep the current vector. If it's set to 0 it will stay at zero
+        rb.AddForce(rawMovement * speed);
 
-			//Handles the jump function
-			if (UpKey() && !isFalling)
-			{
-				
-				rigid.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-			}
-		}
-	}
+    }
+    
 
-	public void OnCollisionStay(Collision col)
-	{ 
-		isFalling = false;
-	}
+    
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Reset")
+        {
+            this.transform.position = startPos;
+        }
+    }
 
-	public void OnCollisionExit()
-	{
-		isFalling = true;
-	}
-
-	private bool UpKey()
-	{
-		return (Input.GetKeyDown(KeyCode.Space));
-	}
+ 
 }
