@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Maze.unity
+    path: Assets/Scenes/Sunset.unity
     guid: b6af2103d3b983a4c824848d8ed1e450
   m_configObjects: {}
