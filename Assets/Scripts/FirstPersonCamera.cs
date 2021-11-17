@@ -5,19 +5,16 @@ using UnityEngine;
 public class FirstPersonCamera : MonoBehaviour
 {
 
-    private const float Y_angle_min = 0f;
-    private const float Y_angle_max = 85f;
+    private const float Y_angle_min = 0f , Y_angle_max = 85f;
+    
 
     public Transform lookAt;
     public Transform camTransform;
 
     private Camera cam;
 
-    private float distance = 3f;
-    private float currentX = 0f;
-    private float currentY = 0f;
-    private float sensitivityX = 5f;
-    private float sensitivityY = 5f;
+    private float distance = 3f , currentX = 0f , currentY = 0f , sensitivityX = 5f, sensitivityY = 5f;
+   
 
     private void Start()
     {

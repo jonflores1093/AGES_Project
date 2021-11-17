@@ -1994,8 +1994,8 @@ GameObject:
   - component: {fileID: 166082719}
   - component: {fileID: 166082718}
   m_Layer: 0
-  m_Name: Reset
-  m_TagString: Reset
+  m_Name: Next Scene
+  m_TagString: NextScene
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21370,7 +21370,15 @@ PrefabInstance:
       value: 0.071
       objectReference: {fileID: 0}
     - target: {fileID: 59488547039412580, guid: 3df91b4ba53a6004b9614f0d5f8d0217, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 59488547039412580, guid: 3df91b4ba53a6004b9614f0d5f8d0217, type: 3}
       propertyPath: camera
+      value: 
+      objectReference: {fileID: 370362950}
+    - target: {fileID: 59488547039412580, guid: 3df91b4ba53a6004b9614f0d5f8d0217, type: 3}
+      propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 370362950}
     - target: {fileID: 59488547039412605, guid: 3df91b4ba53a6004b9614f0d5f8d0217, type: 3}
