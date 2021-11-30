@@ -7,17 +7,19 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody))]
 public class movement : MonoBehaviour
 {
-    private Transform Spawn , playerPos;
-    public float speed = 5f;
     
+    public float speed = 5f;
+    Vector3 startPos;
     private Rigidbody rb;
     [SerializeField] private Transform cameraTransform;
+    
+    
     
     void Start()
     {
     	rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
-        Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
+        startPos = gameObject.transform.position;
 
     }
 
@@ -28,6 +30,8 @@ public class movement : MonoBehaviour
         {
             Application.Quit();
         }
+
+        
     }
     void FixedUpdate()
     {
@@ -43,6 +47,8 @@ public class movement : MonoBehaviour
         rawMovement = rawMovement.normalized; //Will keep the current vector. If it's set to 0 it will stay at zero
         rb.AddForce(rawMovement * speed);
 
+
+       
     }
     
 
@@ -55,8 +61,11 @@ public class movement : MonoBehaviour
             SceneManager.LoadScene("Darkness");
         }
 
-        
+        if (other.tag == "Reset")
+        {
+            gameObject.transform.position = startPos;
+        }
     }
 
- 
+  
 }
