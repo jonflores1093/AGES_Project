@@ -330,6 +330,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Scripts/FirstPersonCamera.cs"
 "Assets/Scripts/movement.cs"
+"Assets/Scripts/SkyboxChange.cs"
 -langversion:8.0
 
 /deterministic

@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\movement.cs" />
     <Compile Include="Assets\Scripts\FirstPersonCamera.cs" />
+    <Compile Include="Assets\Scripts\SkyboxChange.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SkySerie Freebie\Hdri setup.txt" />
