@@ -20,6 +20,7 @@ public class movement : MonoBehaviour
     	rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
         startPos = gameObject.transform.position;
+        
 
     }
 
@@ -58,13 +59,18 @@ public class movement : MonoBehaviour
     {
         if (other.tag == "NextScene")
         {
-            SceneManager.LoadScene("Darkness");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         if (other.tag == "Reset")
         {
             gameObject.transform.position = startPos;
         }
+
+        if (other.tag == "Ending")
+        {
+            SceneManager.LoadScene("Menu");
+        }    
     }
 
   

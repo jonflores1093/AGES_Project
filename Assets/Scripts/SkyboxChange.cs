@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+
 
 public class SkyboxChange : MonoBehaviour
 {
@@ -10,19 +13,22 @@ public class SkyboxChange : MonoBehaviour
 
     void Start()
     {
-        skyboxMaterial = skybox[Random.Range(0, skybox.Length)];
+        skyboxMaterial = skybox[UnityEngine.Random.Range(0, skybox.Length)];
         RenderSettings.skybox = skyboxMaterial;
+        TimeChange();
     }
 
-    //public playGame() 
-    //{
-    //    TimeZoneInfo cst = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
-    //    System.DateTime today = System.DateTime.Now;
-    //    DateTime currentTime = TimeZoneInfo.ConvertTime(today, cst);
+    public void TimeChange()
+    {
+        TimeZoneInfo cst = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
+        DateTime today = DateTime.Now;
+        DateTime currentTime = TimeZoneInfo.ConvertTime(today, cst);
+        Debug.Log(currentTime);
+
+        
 
 
-
-    //}
+    }
 }
 
 

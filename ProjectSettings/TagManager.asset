@@ -7,6 +7,7 @@ TagManager:
   - Reset
   - Spawn
   - NextScene
+  - Ending
   layers:
   - Default
   - TransparentFX
