@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class movement : MonoBehaviour
 {
     
-    public float speed = 5f;
+    public float speed = 10f;
     Vector3 startPos;
     private Rigidbody rb;
     [SerializeField] private Transform cameraTransform;
@@ -69,7 +69,7 @@ public class movement : MonoBehaviour
 
         if (other.tag == "Ending")
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Credits");
         }    
     }
 
