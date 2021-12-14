@@ -67,8 +67,11 @@ public class movement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
+        //Resets the player completely
         if (other.tag == "Reset")
         {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
             gameObject.transform.position = startPos;
         }
 

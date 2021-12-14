@@ -23,7 +23,7 @@ public class FirstPersonCamera : MonoBehaviour
     }
 
     /// <summary>
-    /// Makes it so that the camera moves based on the position of the mouse
+    /// Makes it so that the camera moves based on the position of the mouse then calls it every frame in LateUpdate
     /// </summary>
     private void Update()
     {
@@ -34,9 +34,6 @@ public class FirstPersonCamera : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// 
-    /// </summary>
     private void LateUpdate()
     {
         Vector3 dir = new Vector3(0, 0, -distance);
