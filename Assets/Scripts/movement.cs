@@ -34,6 +34,9 @@ public class movement : MonoBehaviour
 
         
     }
+    /// <summary>
+    /// Allows the player to move using WASD in the direction that the camera is facing
+    /// </summary>
     void FixedUpdate()
     {
         float movementHorizontal = Input.GetAxis("Horizontal");
@@ -48,13 +51,15 @@ public class movement : MonoBehaviour
         rawMovement = rawMovement.normalized; //Will keep the current vector. If it's set to 0 it will stay at zero
         rb.AddForce(rawMovement * speed);
 
-
-       
     }
     
 
     
-    
+    /// <summary>
+    /// Makes it so that the scene loads once the play collides with an empty game object.
+    /// The game objects have tags that reference which scene needs to be loaded next.
+    /// </summary>
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "NextScene")

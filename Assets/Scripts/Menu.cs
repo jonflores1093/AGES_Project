@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+
+    /// <summary>
+    /// Simple Menu script.
+    /// </summary>
     public void PlayGame() 
     {
         SceneManager.LoadScene(1);

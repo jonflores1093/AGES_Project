@@ -22,6 +22,9 @@ public class FirstPersonCamera : MonoBehaviour
         cam = Camera.main;
     }
 
+    /// <summary>
+    /// Makes it so that the camera moves based on the position of the mouse
+    /// </summary>
     private void Update()
     {
         currentX += Input.GetAxis("Mouse X") * sensitivityX;
@@ -30,6 +33,10 @@ public class FirstPersonCamera : MonoBehaviour
         currentY = Mathf.Clamp(currentY, Y_angle_min, Y_angle_max);
     }
 
+
+    /// <summary>
+    /// 
+    /// </summary>
     private void LateUpdate()
     {
         Vector3 dir = new Vector3(0, 0, -distance);
